@@ -12,18 +12,18 @@ import java.util.*
 class TodoRestController(val todoRepository: TodoRepository) {
 
 
-    @RequestMapping(path = [("/id/{todoId}")], method = [(RequestMethod.GET)])
-    fun getTodo(@PathVariable("todoId") todoId: Long): Optional<Todo>? {
+    @GetMapping("/id/{todoId}")
+    fun getTodo(@PathVariable("todoId") todoId: Long): Optional<Todo> {
         return todoRepository.findById(todoId)
     }
 
 
-    @RequestMapping(path = [("/")], method = [(RequestMethod.GET)])
+    @GetMapping("/")
     fun getAllTodo(): List<Todo> {
         return todoRepository.findAll()
     }
 
-    @RequestMapping(path = [("/new")], method = [(RequestMethod.POST)])
+    @PostMapping("/new")
     fun newTodo(@RequestBody todo: Todo) {
         todoRepository.save(todo)
     }
@@ -34,12 +34,12 @@ class TodoRestController(val todoRepository: TodoRepository) {
         todoRepository.save(todo)
     }
 
-    @RequestMapping(path = [("/{todoId}")], method = [(RequestMethod.DELETE)])
+    @RequestMapping("/{todoId}")
     fun deleteTodo(@PathVariable("todoId") todoId: Long) {
         todoRepository.deleteById(todoId)
     }
-    @RequestMapping(path = [("/title/{title}")], method = [(RequestMethod.GET)])
-    fun getTodoByTitle(@PathVariable("title") title: String): MutableList<Todo>? {
+    @RequestMapping("/title/{title}")
+    fun getTodoByTitle(@PathVariable("title") title: String): MutableList<Todo> {
         return todoRepository.findByTitleContains(title)
 
     }

@@ -30,7 +30,7 @@ export class TodoComponent implements OnInit {
 
   deleteTodo(id: number) {
     this.todoservice.deleteTodo(id)
-      .subscribe(data => this.todos = data);
+      .subscribe();
         
   }
 

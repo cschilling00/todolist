@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class CreateTodoComponent implements OnInit {
 
-  newTodo: ITodo;
   public title: string;
   public description: string;
   private url: string = "http://localhost:8080/todos/";
-  todos: any;
+  todos: ITodo[];
+  newTodo : Observable<ITodo>;
 
   constructor(private todoservice: TodoService) { }
 
@@ -23,9 +23,8 @@ export class CreateTodoComponent implements OnInit {
   }
 
   create(){
-    this.newTodo = new ITodo(this.title,this.description);
-
-    this.todoservice.createTodo(this.newTodo)
+    this.newTodo = new 
+    this.todoservice.createTodo(newTodo)
                       .subscribe(todo => this.todos.push(todo));
   }
   
