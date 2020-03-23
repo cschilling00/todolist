@@ -1,10 +1,23 @@
+{{todoForm.value | json}}
+
 <h3>Neues Todo Element erstellen:</h3>
 
-<h4> Titel: <input [(ngModel)]="title" type="text" minlength="1" autocomplete="on" name="Titel"></h4>
-{{title}}
-<h4> Beschreibung: <input [(ngModel)]="description" type="text" minlength="1" autocomplete="on" name="Beschreibung"></h4>
-{{description}}
+<form [formGroup]="todoForm">
+    <label>
+        Titel:
+        <input type="text" formControlName="title">
+    </label>
+    
+    <p></p>
 
-<h3>{{url}}new</h3>
+    <label>
+        Beschreibung:
+        <input type="text" formControlName="description">
+    </label>
+    
+</form>
 
+<form [formGroup]="todoForm" (click)="create()"></form>
+
+<p></p>
 <input type="submit" formmethod="POST"  (click)="create()" value="Erstellen">

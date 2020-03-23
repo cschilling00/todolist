@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../todo/shared/todo.service';
 import { ITodo } from '../todo';
 import { Observable } from 'rxjs';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-todo',
@@ -16,6 +17,12 @@ export class CreateTodoComponent implements OnInit {
   todos: ITodo[];
   newTodo : Observable<ITodo>;
 
+
+  todoForm = new FormGroup({
+    title: new FormControl(''),
+    description: new FormControl('')
+  });
+
   constructor(private todoservice: TodoService) { }
 
   ngOnInit() {
@@ -23,9 +30,7 @@ export class CreateTodoComponent implements OnInit {
   }
 
   create(){
-    this.newTodo = new 
-    this.todoservice.createTodo(newTodo)
-                      .subscribe(todo => this.todos.push(todo));
+    console.log(this.todoForm.value);
   }
   
 
