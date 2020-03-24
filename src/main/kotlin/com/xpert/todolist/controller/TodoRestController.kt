@@ -27,11 +27,11 @@ class TodoRestController(val todoRepository: TodoRepository) {
     }
 
     @PostMapping("/new")
-    fun newTodo(@RequestBody  json:JsonNode) {
-        val mapper = jacksonObjectMapper().registerModule(KotlinModule())
-        val newTodo : Todo =mapper.readValue(json.toString())
+    fun newTodo(@RequestBody  todo: Todo) {
+//        val mapper = jacksonObjectMapper().registerModule(KotlinModule())
+//        val newTodo : Todo =mapper.readValue(json.toString())
 
-        todoRepository.save(newTodo)
+        todoRepository.save(todo)
     }
 
     @PutMapping
