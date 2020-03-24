@@ -1,13 +1,13 @@
 package com.xpert.todolist.controller
 
-import com.sun.javafx.beans.IDProperty
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import com.xpert.todolist.todo.Todo
 import com.xpert.todolist.todo.TodoRepository
-import org.springframework.data.annotation.Id
-import org.springframework.data.repository.query.Param
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import org.springframework.
 import java.util.*
 @CrossOrigin()
 @RestController
@@ -27,9 +27,10 @@ class TodoRestController(val todoRepository: TodoRepository) {
     }
 
     @PostMapping("/new")
-    fun newTodo(@RequestBody json :Map<String,String>) {
+    fun newTodo(@RequestBody  json:JsonNode) {
+        val mapper = jacksonObjectMapper().registerModule(KotlinModule())
+        val newTodo : Todo =mapper.readValue(json.toString())
 
-        newTodo = Todo(json["title"], json["description"], false)
         todoRepository.save(newTodo)
     }
 

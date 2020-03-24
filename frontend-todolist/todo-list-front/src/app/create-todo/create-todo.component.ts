@@ -32,9 +32,8 @@ export class CreateTodoComponent implements OnInit {
 
   create(){
     console.log(this.todoForm.value);
-    this.newTodo = new ITodo();
-    this.newTodo.title = this.title;
-    this.newTodo.description = this.description;
+    this.newTodo = this.todoForm.value;
+    
     this.todoservice
     .createTodo(this.newTodo)
     .subscribe(data => this.todos.push(data));
@@ -43,3 +42,5 @@ export class CreateTodoComponent implements OnInit {
 
 }
 //data => this.todo.push(data
+//this.newTodo.title = this.title;
+//this.newTodo.description = this.description;

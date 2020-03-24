@@ -2,19 +2,14 @@ package com.xpert.todolist.todo
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
-import javax.annotation.processing.Generated
 
 @Document
-data class Todo(var title: String, var description: String, var finished: Boolean = false) {
+data class Todo(var title: String, var description: String) {
 
-    @Id var id: Long,
+    @Id
+    var id: Long = 1
+    var finished: Boolean = false
 
-
-
-
-
-
-    fun printTodo(): String? = "${this.id} , ${this.title} , ${this.description} , ${this.finished}"
 
 
 }
