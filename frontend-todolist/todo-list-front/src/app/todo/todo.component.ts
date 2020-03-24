@@ -9,6 +9,7 @@ import { TodoService } from './shared/todo.service';
 export class TodoComponent implements OnInit {
 
   public todos = [];
+  public error;
 
 
   constructor(private todoservice: TodoService) { }

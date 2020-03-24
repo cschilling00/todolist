@@ -3,6 +3,7 @@ import { TodoService } from '../todo/shared/todo.service';
 import { ITodo } from '../todo';
 import { Observable } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-todo',
@@ -14,8 +15,8 @@ export class CreateTodoComponent implements OnInit {
   public title: string;
   public description: string;
   private url: string = "http://localhost:8080/todos/";
+  newTodo: any;
   todos: ITodo[];
-  newTodo : Observable<ITodo>;
 
 
   todoForm = new FormGroup({
@@ -31,7 +32,14 @@ export class CreateTodoComponent implements OnInit {
 
   create(){
     console.log(this.todoForm.value);
+    this.newTodo = new ITodo();
+    this.newTodo.title = this.title;
+    this.newTodo.description = this.description;
+    this.todoservice
+    .createTodo(this.newTodo)
+    .subscribe(data => this.todos.push(data));
   }
   
 
 }
+//data => this.todo.push(data

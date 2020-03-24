@@ -23,8 +23,8 @@ export class TodoService {
     
   }
 
-  createTodo(todo:Observable<ITodo>){
-    return this.http.post(`${this.url}new`, this.todo);
+  createTodo(todo:ITodo) : Observable<ITodo>{
+    return this.http.post<ITodo>(`${this.url}new`, this.todo);
 
   }
 

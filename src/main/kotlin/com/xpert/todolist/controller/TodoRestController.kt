@@ -1,10 +1,13 @@
 package com.xpert.todolist.controller
 
+import com.sun.javafx.beans.IDProperty
 import com.xpert.todolist.todo.Todo
 import com.xpert.todolist.todo.TodoRepository
+import org.springframework.data.annotation.Id
 import org.springframework.data.repository.query.Param
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import org.springframework.
 import java.util.*
 @CrossOrigin()
 @RestController
@@ -24,8 +27,10 @@ class TodoRestController(val todoRepository: TodoRepository) {
     }
 
     @PostMapping("/new")
-    fun newTodo(@RequestBody todo: Todo) {
-        todoRepository.save(todo)
+    fun newTodo(@RequestBody json :Map<String,String>) {
+
+        newTodo = Todo(json["title"], json["description"], false)
+        todoRepository.save(newTodo)
     }
 
     @PutMapping
