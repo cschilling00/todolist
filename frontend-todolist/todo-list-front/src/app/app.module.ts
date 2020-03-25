@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoService } from './todo/shared/todo.service';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
+import { DeleteTodoComponent } from './delete-todo/delete-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     CreateTodoComponent,
-    TodoComponent
+    TodoComponent,
+    DeleteTodoComponent
   ],
   imports: [
     BrowserModule,

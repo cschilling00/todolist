@@ -1,5 +1,7 @@
 <h3>Todo Liste: </h3>
 <ul *ngFor = "let todo of todos">
-    <li>Titel: {{todo.title}}, Beschreibung: {{todo.description}}</li>
+    <li><a href="http://localhost:4200/todos/{{todo.id}}">{{todo.id}}</a>: Titel: {{todo.title}}, Beschreibung: {{todo.description}} </li>
 
 </ul>
+<p></p>
+<input type="submit" (click)="onClick()" value="Neu">

@@ -15,8 +15,8 @@ import java.util.*
 class TodoRestController(val todoRepository: TodoRepository) {
 
 
-    @GetMapping("/id/{todoId}")
-    fun getTodo(@PathVariable("todoId") todoId: Long): Optional<Todo> {
+    @GetMapping("/{todoId}")
+    fun getTodo(@PathVariable("todoId") todoId: String): Optional<Todo> {
         return todoRepository.findById(todoId)
     }
 
@@ -28,26 +28,18 @@ class TodoRestController(val todoRepository: TodoRepository) {
 
     @PostMapping("/new")
     fun newTodo(@RequestBody  todo: Todo) {
-//        val mapper = jacksonObjectMapper().registerModule(KotlinModule())
-//        val newTodo : Todo =mapper.readValue(json.toString())
-
         todoRepository.save(todo)
     }
 
-    @PutMapping
-    @ResponseStatus(HttpStatus.OK)
-    fun updateTodo(todo: Todo) {
-        todoRepository.save(todo)
-    }
+//    @PutMapping
+//    @ResponseStatus(HttpStatus.OK)
+//    fun updateTodo(todo: Todo) {
+//        todoRepository.save(todo)
+//    }
 
-    @RequestMapping("/{todoId}")
-    fun deleteTodo(@PathVariable("todoId") todoId: Long) {
+    @DeleteMapping("/{todoId}")
+    fun deleteTodo(@PathVariable("todoId") todoId: String) {
         todoRepository.deleteById(todoId)
-    }
-    @RequestMapping("/title/{title}")
-    fun getTodoByTitle(@PathVariable("title") title: String): MutableList<Todo> {
-        return todoRepository.findByTitleContains(title)
-
     }
 
 }

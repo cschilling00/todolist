@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 data class Todo(var title: String, var description: String) {
 
     @Id
-    var id: Long = 1
+    lateinit var id: String
     var finished: Boolean = false
 
 

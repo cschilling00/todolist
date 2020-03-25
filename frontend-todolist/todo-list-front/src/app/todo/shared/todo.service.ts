@@ -23,17 +23,17 @@ export class TodoService {
     
   }
 
-  createTodo(todo:ITodo) : Observable<ITodo>{
-    return this.http.post<ITodo>(`${this.url}new`, this.todo);
+  createTodo(todo:any) : Observable<ITodo>{
+    return this.http.post<any>(`${this.url}new`, todo);
 
   }
 
-  getTodosById(id: number): Observable<ITodo[]> {
-    return this.http.get<ITodo[]>(`${this.url}+${id}`);
+  getTodosById(id: string): Observable<ITodo[]> {
+    return this.http.get<ITodo[]>(`${this.url}${id}`);
   }
 
-  deleteTodo(id: number): Observable<ITodo[]> {
-    return this.http.delete<ITodo[]>(`${this.url}`);
+  deleteTodo(id: string): Observable<ITodo[]> {
+    return this.http.delete<ITodo[]>(`${this.url}${id}`);
 
   }
 

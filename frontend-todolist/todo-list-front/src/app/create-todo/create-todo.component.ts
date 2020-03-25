@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, IterableDiffers } from '@angular/core';
 import { TodoService } from '../todo/shared/todo.service';
 import { ITodo } from '../todo';
 import { Observable } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-todo',
@@ -12,8 +13,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CreateTodoComponent implements OnInit {
 
-  public title: string;
-  public description: string;
   private url: string = "http://localhost:8080/todos/";
   newTodo: any;
   todos: ITodo[];
@@ -24,23 +23,21 @@ export class CreateTodoComponent implements OnInit {
     description: new FormControl('')
   });
 
-  constructor(private todoservice: TodoService) { }
+  constructor(private todoservice: TodoService, private router:Router) { }
 
   ngOnInit() {
     
   }
 
   create(){
-    console.log(this.todoForm.value);
+    //console.log(this.todoForm.value);
     this.newTodo = this.todoForm.value;
     
     this.todoservice
     .createTodo(this.newTodo)
     .subscribe(data => this.todos.push(data));
+    this.router.navigateByUrl('/todos');
   }
   
 
 }
-//data => this.todo.push(data
-//this.newTodo.title = this.title;
-//this.newTodo.description = this.description;
