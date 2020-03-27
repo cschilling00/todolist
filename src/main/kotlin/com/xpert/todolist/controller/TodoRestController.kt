@@ -31,11 +31,12 @@ class TodoRestController(val todoRepository: TodoRepository) {
         todoRepository.save(todo)
     }
 
-//    @PutMapping
-//    @ResponseStatus(HttpStatus.OK)
-//    fun updateTodo(todo: Todo) {
-//        todoRepository.save(todo)
-//    }
+    @PutMapping("/update/{todoId}")
+    //@ResponseStatus(HttpStatus.OK)
+    fun updateTodo(@RequestBody todo: Todo, @PathVariable("todoId") todoId: String) {
+        todo.id = todoId
+        todoRepository.save(todo)
+    }
 
     @DeleteMapping("/{todoId}")
     fun deleteTodo(@PathVariable("todoId") todoId: String) {

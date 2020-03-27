@@ -9,6 +9,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoService } from './todo/shared/todo.service';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { DeleteTodoComponent } from './delete-todo/delete-todo.component';
+import { UpdateTodoComponent } from './update-todo/update-todo.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DeleteTodoComponent } from './delete-todo/delete-todo.component';
     routingComponents,
     CreateTodoComponent,
     TodoComponent,
-    DeleteTodoComponent
+    DeleteTodoComponent,
+    UpdateTodoComponent
   ],
   imports: [
     BrowserModule,

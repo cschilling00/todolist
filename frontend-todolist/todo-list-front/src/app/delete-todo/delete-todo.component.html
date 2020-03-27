@@ -1,9 +1,11 @@
-<h3>Todo Element {{id}}:</h3>
+<h3>Todo Element {{this.id}}:</h3>
 <ul >
-    <li>Titel: {{todos.title}}, Beschreibung: {{todos.description}} </li>
+    <li>Titel: {{todo.title}}, Beschreibung: {{todo.description}} </li>
 
 </ul>
 <p></p>
 <input type="submit" (click)="deleteTodo()" value="Löschen">
 
 <input type="submit" (click)="zurueck()" value="zurück">
+<input type="submit" (click)="bearbeiten()" value="bearbeiten">
+

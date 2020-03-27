@@ -4,6 +4,7 @@ import { TodoComponent } from './todo/todo.component';
 import { AppComponent } from './app.component';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { DeleteTodoComponent } from './delete-todo/delete-todo.component';
+import { UpdateTodoComponent } from './update-todo/update-todo.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'todos/', component: TodoComponent},
   {path: 'todos/new', component: CreateTodoComponent},
   {path: 'todos/:id', component: DeleteTodoComponent},
+  {path: 'todos/update/:id', component: UpdateTodoComponent},
 
 ];
 

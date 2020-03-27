@@ -27,9 +27,13 @@ export class TodoService {
     return this.http.post<any>(`${this.url}new`, todo);
 
   }
+  updateTodo(todo:any, id: string) : Observable<ITodo>{
+    return this.http.post<any>(`${this.url}update/${id}`, todo);
 
-  getTodosById(id: string): Observable<ITodo[]> {
-    return this.http.get<ITodo[]>(`${this.url}${id}`);
+  }
+
+  getTodosById(id: string): Observable<ITodo> {
+    return this.http.get<ITodo>(`${this.url}${id}`);
   }
 
   deleteTodo(id: string): Observable<ITodo[]> {
