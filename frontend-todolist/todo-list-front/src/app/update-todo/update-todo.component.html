@@ -1,0 +1,28 @@
+<h3>Todo Element bearbeiten:</h3>
+
+<form [formGroup]="updateForm">
+    <label>
+        Titel:
+        <input type="text" formControlName="titleShoww"  value="text">
+    </label>
+    
+    <p></p>
+
+    <label>
+        Beschreibung:
+        <input type="text" formControlName="descriptionShoww"  value="texxt">
+    </label>
+    
+</form>
+
+<form [formGroup]="updateForm" (click)="update()"></form>
+
+<p></p>
+<input type="submit" formmethod="POST"  (click)="update()" value="Speichern">
+<input type="submit" (click)="zurueck()" value="zurück">
+<input type="submit" (click)="setValue()" value="Default Text">
+<!--[value]="{{this.description}}"
+
+(onload)="showTitle()"
+(onload)="showDescription()"
+-->
