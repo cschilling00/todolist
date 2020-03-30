@@ -2,7 +2,7 @@
 
 <h3>Neues Todo Element erstellen:</h3>
 
-<form [formGroup]="todoForm">
+<form [formGroup]="CreateTodoForm">
     <label>
         Titel:
         <input type="text" formControlName="title">
@@ -17,7 +17,7 @@
     
 </form>
 
-<form [formGroup]="todoForm" (click)="create()"></form>
+<form [formGroup]="CreateTodoForm" (click)="create()"></form>
 
 <p></p>
 <input type="submit" formmethod="POST"  (click)="create()" value="Erstellen">

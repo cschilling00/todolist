@@ -3,6 +3,7 @@ import { TodoService } from '../todo/shared/todo.service';
 import {ActivatedRoute} from "@angular/router";
 import { Router } from '@angular/router';
 import { ITodo } from '../todo';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-delete-todo',
@@ -16,6 +17,11 @@ export class DeleteTodoComponent implements OnInit {
   private url: string = "/todos/";
   public todo: ITodo;
 
+  
+    public todoNameControl= new FormControl('');
+    public todoDescriptionControl= new FormControl('');
+  
+
 
   constructor(private todoservice: TodoService, private route: ActivatedRoute, private router:Router) { 
     this.id = this.route.snapshot.paramMap.get('id');
@@ -25,8 +31,12 @@ export class DeleteTodoComponent implements OnInit {
 
   ngOnInit() {    
     this.todoservice.getTodosById(this.id)
-        .subscribe(data => this.todo = data);
-        console.log(this.todo.title);
+        .subscribe(data => {
+        this.todo = data;      
+        this.todoNameControl.setValue(data.title);
+        this.todoDescriptionControl.setValue(data.description);
+        //console.log(this.todo.title);
+      });
   }
 
 

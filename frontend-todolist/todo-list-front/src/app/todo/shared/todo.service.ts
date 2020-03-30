@@ -27,8 +27,8 @@ export class TodoService {
     return this.http.post<any>(`${this.url}new`, todo);
 
   }
-  updateTodo(todo:any, id: string) : Observable<ITodo>{
-    return this.http.post<any>(`${this.url}update/${id}`, todo);
+  updateTodo(todo:ITodo, id: string) : Observable<ITodo>{
+    return this.http.put<any>(`${this.url}update/${id}`, todo);
 
   }
 

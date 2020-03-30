@@ -14,15 +14,17 @@ export class UpdateTodoComponent implements OnInit {
 
   private url: string = "/todos/";
   newTodo: any;
-  todos: ITodo[];
+  todos: ITodo[] =  [];
   public id : string;
   private title: string;
   private description: string;
   todo: ITodo;
+  //public todoNameControl;
+  //public todoDescriptionControl;
 
-  updateForm = new FormGroup({
-    titleShoww: new FormControl(''),
-    descriptionShoww: new FormControl('')
+  UpdateTodoForm = new FormGroup({  
+      todoNameControl: new FormControl(''),
+      todoDescriptionControl: new FormControl('')
   });
 
 constructor(private todoservice: TodoService, private route: ActivatedRoute, private router:Router) { 
@@ -31,32 +33,30 @@ constructor(private todoservice: TodoService, private route: ActivatedRoute, pri
 
 ngOnInit() {  
       
-      console.log(this.todoservice.getTodosById(this.id)
-      .subscribe(data => this.todo = data));
-      this.title = this.todo.title;
-      this.description = this.todo.description;
-      
-  
+      this.todoservice.getTodosById(this.id)
+      .subscribe(data => {
+        this.todo = data;   
+        console.log(this.UpdateTodoForm.value);   
+        console.log(this.todo);   
+        this.UpdateTodoForm.setValue({todoNameControl: data.title, todoDescriptionControl: data.description});
+      });
 }
 
 zurueck(){
+  
   this.router.navigateByUrl(this.url);
-}
-
-setValue(){
-  this.updateForm.setValue({
-    titleShoww: this.id,
-    descriptionShoww: this.id
-  });
 }
 
 
 update(){
-  console.log(this.updateForm.value);
-  this.newTodo = this.updateForm.value;
-  
+  console.log(this.todo);   
+  this.newTodo = this.UpdateTodoForm.getRawValue();
+  console.log(this.newTodo);  
+  this.todo.title = this.newTodo.todoNameControl;
+  this.todo.description = this.newTodo.todoDescriptionControl;
+  console.log(this.todo);   
   this.todoservice
-  .updateTodo(this.newTodo, this.id)
+  .updateTodo(this.todo, this.id)
   .subscribe(data => this.todos.push(data));
   this.router.navigateByUrl('/todos');
 }

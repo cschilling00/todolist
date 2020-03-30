@@ -15,10 +15,10 @@ export class CreateTodoComponent implements OnInit {
 
   private url: string = "http://localhost:8080/todos/";
   newTodo: any;
-  todos: ITodo[];
+  todos: ITodo[] =[];
 
 
-  todoForm = new FormGroup({
+  CreateTodoForm = new FormGroup({
     title: new FormControl(''),
     description: new FormControl('')
   });
@@ -30,13 +30,17 @@ export class CreateTodoComponent implements OnInit {
   }
 
   create(){
-    //console.log(this.todoForm.value);
-    this.newTodo = this.todoForm.value;
-    
+    console.log(this.CreateTodoForm.value);
+    this.newTodo = this.CreateTodoForm.value;
+
     this.todoservice
     .createTodo(this.newTodo)
-    .subscribe(data => this.todos.push(data));
+    .subscribe(data => {
+      this.todos.push(data)
+    });
+    
     this.router.navigateByUrl('/todos');
+    console.log(this.todos);
   }
   
 

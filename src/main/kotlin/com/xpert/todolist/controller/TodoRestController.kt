@@ -32,7 +32,6 @@ class TodoRestController(val todoRepository: TodoRepository) {
     }
 
     @PutMapping("/update/{todoId}")
-    //@ResponseStatus(HttpStatus.OK)
     fun updateTodo(@RequestBody todo: Todo, @PathVariable("todoId") todoId: String) {
         todo.id = todoId
         todoRepository.save(todo)
