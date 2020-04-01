@@ -49,12 +49,10 @@ zurueck(){
 
 
 update(){
-  console.log(this.todo);   
-  this.newTodo = this.UpdateTodoForm.getRawValue();
-  console.log(this.newTodo);  
+  
+  this.newTodo = this.UpdateTodoForm.getRawValue();   
   this.todo.title = this.newTodo.todoNameControl;
-  this.todo.description = this.newTodo.todoDescriptionControl;
-  console.log(this.todo);   
+  this.todo.description = this.newTodo.todoDescriptionControl;    
   this.todoservice
   .updateTodo(this.todo, this.id)
   .subscribe(data => this.todos.push(data));

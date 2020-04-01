@@ -32,6 +32,11 @@ export class TodoService {
 
   }
 
+  updateState(todo:ITodo, id: string) : Observable<ITodo>{
+    return this.http.put<any>(this.url, todo);
+
+  }
+
   getTodosById(id: string): Observable<ITodo> {
     return this.http.get<ITodo>(`${this.url}${id}`);
   }

@@ -10,6 +10,9 @@ import { TodoService } from './todo/shared/todo.service';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { DeleteTodoComponent } from './delete-todo/delete-todo.component';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterielModule } from './materiel/materiel.module';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { UpdateTodoComponent } from './update-todo/update-todo.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterielModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

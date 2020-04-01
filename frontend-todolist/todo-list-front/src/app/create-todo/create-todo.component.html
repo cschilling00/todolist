@@ -1,5 +1,4 @@
 <!--{{todoForm.value | json}}-->
-
 <h3>Neues Todo Element erstellen:</h3>
 
 <form [formGroup]="CreateTodoForm">
@@ -20,4 +19,13 @@
 <form [formGroup]="CreateTodoForm" (click)="create()"></form>
 
 <p></p>
-<input type="submit" formmethod="POST"  (click)="create()" value="Erstellen">
+
+
+
+
+<button color="primary" mat-fab formmethod="POST"  (click)="create()">Erstellen</button>
+
+<!-- 
+
+
+-->
