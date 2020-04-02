@@ -1,0 +1,47 @@
+.button button {
+    
+    margin-left: 30px;
+    margin-top: 15px;
+
+}
+
+.input {
+    width: 100%;
+    max-width: 425px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 3rem; 
+    border: 2rem;
+    border-radius: 4px;
+}
+
+.label {
+
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;   
+    margin-top: 15px;
+    
+
+}
+
+.heading {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    padding-left: 2rem;
+
+}
+
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+
+}
+
+.form > * {
+    align-self: flex-start;
+}
+
+.abstand {
+    margin-right: 10px;
+}

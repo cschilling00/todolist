@@ -1,29 +1,32 @@
 <!--{{todoForm.value | json}}-->
-<h3>Neues Todo Element erstellen:</h3>
+<div class="heading"><h3>Neues Todo Element erstellen:</h3></div>
 
-<form [formGroup]="CreateTodoForm">
+<div class="form"><form [formGroup]="CreateTodoForm">
     <label>
-        Titel:
-        <input type="text" formControlName="title">
+        <div class="label">Titel:</div>
+        <div class="input"><input type="text" formControlName="title"></div>
     </label>
-    
+
+
     <p></p>
 
     <label>
-        Beschreibung:
-        <input type="text" formControlName="description">
+        <div class="label">Beschreibung:</div>
+        <div class="input"><input type="text" formControlName="description"></div>
     </label>
     
 </form>
 
 <form [formGroup]="CreateTodoForm" (click)="create()"></form>
+</div>
 
-<p></p>
+<div class="button">
+    <button class="abstand" color="primary" mat-fab formmethod="POST"  (click)="create()">Erstellen</button>    
+    <button color="primary" mat-fab formmethod="POST"  (click)="zurueck()">zurück</button>
+</div>
 
 
 
-
-<button color="primary" mat-fab formmethod="POST"  (click)="create()">Erstellen</button>
 
 <!-- 
 

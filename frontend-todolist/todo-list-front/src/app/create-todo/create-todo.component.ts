@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class CreateTodoComponent implements OnInit {
 
-  private url: string = "http://localhost:8080/todos/";
   newTodo: any;
   todos: ITodo[] =[];
 
@@ -42,6 +41,8 @@ export class CreateTodoComponent implements OnInit {
     this.router.navigateByUrl('/todos');
     console.log(this.todos);
   }
-  
+  zurueck(){  
+    this.router.navigateByUrl('/todos/');
+  }
 
 }

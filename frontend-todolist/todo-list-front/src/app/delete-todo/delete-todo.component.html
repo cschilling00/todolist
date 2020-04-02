@@ -1,13 +1,14 @@
-<h3>Todo Element {{this.id}}:</h3>
+<h3 class="heading">Todo Element {{this.id}}:</h3>
 <ul >
-    <li>Titel: {{todoNameControl.value}}, 
+    <li class="label">Titel: {{todoNameControl.value}}, 
         Beschreibung: {{todoDescriptionControl.value}}
     </li>
 
 </ul>
 <p></p>
-<input type="submit" (click)="deleteTodo()" value="Löschen">
 
-<input type="submit" (click)="zurueck()" value="zurück">
-<input type="submit" (click)="bearbeiten()" value="bearbeiten">
-
+<div class="button">
+    <button class="abstand" color="primary" mat-raised-button formmethod="POST"  (click)="deleteTodo()">Löschen</button>
+    <button class="abstand" color="primary" mat-raised-button formmethod="POST"  (click)="zurueck()">zurück</button>
+    <button class="abstand" color="primary" mat-raised-button formmethod="POST"  (click)="bearbeiten()">bearbeiten</button>
+</div>

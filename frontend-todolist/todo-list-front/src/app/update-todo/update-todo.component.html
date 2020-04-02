@@ -1,29 +1,22 @@
-<h3>Todo Element bearbeiten:</h3>
+<h3 class="heading">Todo Element bearbeiten:</h3>
 
-<form [formGroup]="UpdateTodoForm">
+<form class="form" [formGroup]="UpdateTodoForm">
     <label>
-        Titel:
-        <input type="text" formControlName="todoNameControl"  value="test">
+        <div class="label">Titel:</div>
+        <div class="input"><input type="text" formControlName="todoNameControl"  value="test"></div>
     </label>
     
     <p></p>
 
     <label>
-        Beschreibung:
-        <input type="text" formControlName="todoDescriptionControl"  value="texxt">
+        <div class="label">Beschreibung:</div>
+        <div class="input"><input type="text" formControlName="todoDescriptionControl"  value="texxt"></div>
     </label>
     
 </form>
 
-<form [formGroup]="UpdateTodoForm" (click)="update()"></form>
 
-<p></p>
-<input type="submit" (click)="update()" value="Speichern">
-<input type="submit" (click)="zurueck()" value="zurück">
-<!--[value]="{{this.description}}"
-
-(onload)="showTitle()"
-(onload)="showDescription()"
-
-formmethod="PUT"
--->
+<div class="button" >
+    <button class="abstand" color="primary" mat-raised-button formmethod="POST"  (click)="update()">Speichern</button>
+    <button color="primary" mat-raised-button formmethod="GET"  (click)="zurueck()">zurück</button>
+</div>

@@ -44,7 +44,7 @@ ngOnInit() {
 
 zurueck(){
   
-  this.router.navigateByUrl(this.url);
+  this.router.navigateByUrl(`/todos/${this.id}`);
 }
 
 
@@ -56,7 +56,7 @@ update(){
   this.todoservice
   .updateTodo(this.todo, this.id)
   .subscribe(data => this.todos.push(data));
-  this.router.navigateByUrl('/todos');
+  this.router.navigateByUrl('/todos/');
 }
 
 }
