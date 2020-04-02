@@ -29,6 +29,7 @@ export class TodoComponent implements OnInit {
     this.todoservice.getTodos()
         .subscribe(data => {
           this.todos = data;
+          console.log("Das sind die Todos in der get all methode:" + this.todos);
           for(let item of data){
           if(item.finished == true){
             this.done.push(item);
@@ -38,6 +39,8 @@ export class TodoComponent implements OnInit {
         }         
                  
       });
+
+      console.log("Das sind die Todos nach dem Get Request:" + this.todos.toString());
   }
 
   onClick(){
@@ -56,7 +59,7 @@ export class TodoComponent implements OnInit {
       console.log(event.container.data[event.currentIndex]["title"]);
       console.log("Alle Todos: " +this.todos);
       for(let todo of this.todos){        
-        console.log(todo.title);
+        console.log("Das sind die Todos aus der Forschleife:" + todo);
         if(event.container.data[event.currentIndex]["title"] == todo.title){
           //console.log(event.container.data[event.currentIndex]["title"]);
           if(todo.finished == false){
@@ -66,12 +69,13 @@ export class TodoComponent implements OnInit {
           }
              
 
-          console.log(this.todotofinish);
-          console.log(this.done);
-          console.log(todo);
+          //console.log(this.todotofinish);
+          //console.log(this.done);
+          //console.log(todo);
           this.todoservice
           .updateTodo(todo, todo.id)
           .subscribe(data => this.todos.push(data));
+          console.log("Das sind die Todos aus der Forschleife nach der Updatemethode:" + todo);
                             
         }                                              
       }     
